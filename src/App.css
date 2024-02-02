@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,23 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+.video_bg iframe {
+	/* position: relative; */
+	/* top: 0px;
+	bottom: 0px; */
+	width: 100%;
+	height: calc(100% + 120px);
+	/* 기존 calc(100% + 120px); */
+	border: none;
+}
+.video_bg::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 15%;
+	height: 100%;
+	z-index: 1;
 }
