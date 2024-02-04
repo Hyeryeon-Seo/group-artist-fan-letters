@@ -1,16 +1,12 @@
 import React from "react";
 
-import styled from "styled-components";
-
-const HeaderBox = styled.header`
-	margin-top: 10px;
-`;
 function Header() {
 	return (
-		<HeaderBox>
-			<h1>Send 💌 your love 💌 to AESPA</h1>
+		<header>
+			<h1>Send 💌 your love 💌 to aespa</h1>
+			{/* 이경우 그냥 onClick에 바로 함수쓰는편인거같다 */}
 			{/* 시간 뜨게 하기 */}
-		</HeaderBox>
+		</header>
 	);
 }
 

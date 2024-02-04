@@ -1,18 +1,14 @@
-import { React, useState } from "react";
-import "styles/reset.css";
+import React from "react";
+// import "styles/reset.css";
 import "./App.css";
-import Router from "shared/Router";
-import Layout from "components/layout/Layout";
+import Router from "shared/Router"; // 경로설정으로 그냥 shared/Router해도됨
 import GlobalStyle from "styles/GlobalStyle";
 
 function App() {
-	const [count, setCount] = useState(0);
-
 	return (
 		<>
 			<Router />
 			<GlobalStyle />
-			<Layout></Layout>
 		</>
 	);
 }

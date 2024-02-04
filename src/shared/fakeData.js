@@ -2,7 +2,7 @@ export const dummyData = [
 	//보니까 이 데이터 내부주소(??)로 fetch해서 쓰거나, 그냥 export
 	// 없이 그냥 이 자체를 import(from fakeData)해서 쓰기도.
 	{
-		createdAt: "2023-11-03T02:07:09.423Z",
+		createdAt: "2023-11-03T02:07:09.423Z", // ISO 8601 포맷으로 추정
 		nickname: "Dr. Clint Christiansen",
 		avatar:
 			"https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/36.jpg",

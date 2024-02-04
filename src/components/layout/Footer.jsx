@@ -2,7 +2,9 @@ import React from "react";
 
 function Footer() {
 	return (
-		<footer style={{ height: "200px", backgroundColor: "pink" }}>Footer</footer>
+		<footer>
+			<p>ⓒ React - 서혜련</p>
+		</footer>
 	);
 }
 

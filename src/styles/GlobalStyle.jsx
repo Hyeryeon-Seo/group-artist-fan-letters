@@ -36,8 +36,8 @@ const GlobalStyle = createGlobalStyle`
 }
 
 	body {
-        color: rgba(255, 255, 255, 0.87);
-	    background-color: #242424;
+        color: black;
+	    background-color: #0e0d0d;
         display: flex;
   flex-direction: column; 
   align-items: center; 
@@ -48,14 +48,21 @@ const GlobalStyle = createGlobalStyle`
     }
 
     header {
-        background-color: #3f74a3;
-        height: 30px;
+        height: 20px; //videosection 떄문에 높이가 0이어도 
+		padding-bottom:10px;
+		background-color: #b33cb3; 
     }
+	
+	h1 {
+		font-size: 20px;
+		font-family: "Pretendard-Black";
+	}
 
 	h2 { // section의 제목 (Write&Send 등)
 		font-family: "Pretendard-Black";
 		font-size: 50px;
-		margin: 20px auto 10px 100px;
+		margin: 0px auto 10px 100px;
+		padding-top: 20px;
 	}
 
 	 nav > ul { // nav   
@@ -67,8 +74,6 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	nav > ul > li { // nav에 속하는 li
-		border: 1px solid darkmagenta;
-		border-radius: 1rem;
 		padding: 20px;
 		width:70px;
 		display: flex;
@@ -77,20 +82,33 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 
-	form {
-		border:none;
-		border-radius: 10px;
-		background-color: #618f1d;
-		height: 400px;
-	}
+	 form {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	padding: 30px;
+	background-color: #f1d5ed;
+	/* margin-right: 100px; */
+	margin-top: 5px;
+	width: 700px;
+	height: 500px;
+	color: black;
+	border-radius: 10px;
+	} 
 
 	input {
 		width: 300px;
+		height: 30px;
+		margin-top: 15px;
 	}
 
 	textarea {
 		width: 500px;
 		height: 50px;
+	}
+
+	select {
+		width: 100px;
 	}
 
 	button { // 내 toodlist버튼스타일 복붙 -> 수정하기
@@ -104,6 +122,27 @@ const GlobalStyle = createGlobalStyle`
 	}
 	  font-size: medium;
 	border-radius: 10px;
+	}
+
+	article {
+		color:white;
+		display: flex;
+		flex-direction: column;
+	}
+
+	img {
+		border-radius: 50%; // 원모양
+	}
+
+	footer {
+		height: 50px;
+		text-align: end;
+		padding-top: 50px;
+		padding-right: 30px;
+		padding-bottom: 30px;
+		color: #a184aa;
+		background-color: #25072c;
+		font-family: "Pretendard-Light";
 	}
     `;
 

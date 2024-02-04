@@ -7,7 +7,7 @@ import { dummyData } from "./fakeData"; // 해당 json임포트해서 여기서 
 // 먼저 각각의 페이지.jsx에서 (자동완성rfce) 컴포넌트export먼저 써놔야 자동import도 가능
 
 const Router = () => {
-	const members = ["카리나", "윈터", "닝닝", "지젤"];
+	const memberList = ["카리나", "윈터", "닝닝", "지젤"];
 
 	// 코멘트(팬레터)들 목록(배열) state
 	const [commentList, setCommentList] = useState(dummyData);
@@ -23,7 +23,7 @@ const Router = () => {
 					path="/"
 					element={
 						<Home
-							members={members}
+							memberList={memberList}
 							commentList={commentList}
 							setCommentList={setCommentList}
 						/>
@@ -35,11 +35,7 @@ const Router = () => {
 				<Route
 					path="detail/:id"
 					element={
-						<Detail
-							members={members}
-							commentList={commentList}
-							setCommentList={setCommentList}
-						/>
+						<Detail commentList={commentList} setCommentList={setCommentList} />
 					}
 				/>
 			</Routes>
