@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"; // 빼먹은 !? 원래 Router자체에서는 react는 필요없는듯
+import React, { useRef, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "pages/Home"; // pages/Home 절대경로설정됨
 import Detail from "pages/Detail";
