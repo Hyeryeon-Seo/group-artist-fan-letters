@@ -26,7 +26,7 @@ function CommentForm({ memberList, setCommentList }) {
 		setCommentList((prevCommentList) => [newComment, ...prevCommentList]); // fix: (newComment)로 써버려서 안되는 버그발생했었다ㅠㅠ
 	};
 
-	// NOTE form태그 제출 시 (코멘트 추가 버튼, 등록 / 기존 input,textarea 글자 초기화
+	// NOTE form태그 제출 시 (코멘트 추가 버튼으로) 등록 / 유효성 검사 /기존 input,textarea 글자 초기화
 	// FIXME 처음에 멤버선택 카리나 초기그대로 둔상태에서 등록시, 카리나 눌렀을때 안뜸
 	// 다른거 눌렀다가 돌아와야 (바로 렌더링X?) 추가된 comment 뜸 (select태그의 문제?)
 	const onSubmit = (e) => {
@@ -46,7 +46,7 @@ function CommentForm({ memberList, setCommentList }) {
 			writedTo,
 			id: crypto.randomUUID(), // 고유한 id 부여
 		});
-		setNickname("");
+		setNickname(""); // 초기화
 		setContent("");
 	};
 
