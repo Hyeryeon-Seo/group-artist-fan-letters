@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+// 같은 파일내부 styled-components 적용
 const InputBox = styled.div`
 	display: flex;
 `;

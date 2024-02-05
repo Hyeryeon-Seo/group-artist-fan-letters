@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 // 전역 스타일링에서 -> 구역 사이즈 적용 (body, header, footer ..)
-// 폰트 이후 수정할 수
 @font-face {
 	font-family: "Pretendard-Light";
 	src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff")
