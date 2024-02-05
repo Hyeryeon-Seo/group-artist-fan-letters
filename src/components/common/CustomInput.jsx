@@ -13,6 +13,7 @@ const InputText = styled.div`
 `;
 
 function CustomInput(props) {
+	// props사용해 전달받음
 	const { children, name, type, value, onChange, placeholder } = props;
 	return (
 		<InputBox>

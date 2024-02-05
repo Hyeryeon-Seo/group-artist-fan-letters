@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import * as S from "styles/CommentListItemStyle";
 
 function CommentItem({ comment }) {
+	// commentList -> CommentItem : props 사용
 	const { id, avatar, nickname, createdAt, content } = comment;
 
 	const navigate = useNavigate();

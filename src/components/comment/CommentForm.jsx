@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import CustomInput from "components/common/CustomInput";
+import { CommentContext } from "../../context/CommentContext";
 
-function CommentForm({ memberList, setCommentList }) {
+function CommentForm() {
+	const context = useContext(CommentContext);
+
 	const [nickname, setNickname] = useState("");
 	const [content, setContent] = useState("");
 	const [writedTo, setWritedTo] = useState("");
@@ -23,7 +26,10 @@ function CommentForm({ memberList, setCommentList }) {
 
 	// // 등록하기
 	const addCommentHandler = (newComment) => {
-		setCommentList((prevCommentList) => [newComment, ...prevCommentList]); // fix: (newComment)로 써버려서 안되는 버그발생했었다ㅠㅠ
+		context.setCommentList((prevCommentList) => [
+			newComment,
+			...prevCommentList,
+		]); // fix: (newComment)로 써버려서 안되는 버그발생했었다ㅠㅠ
 	};
 
 	// // form태그 제출 시 (코멘트 추가 버튼, 등록 / 기존 input,textarea 글자 초기화
@@ -69,7 +75,7 @@ function CommentForm({ memberList, setCommentList }) {
 			></textarea>
 			<label>To.</label>
 			<select value={writedTo} onChange={handleWritedToSelectChange}>
-				{memberList.map((mem) => {
+				{context.memberList.map((mem) => {
 					return <option value={mem}>{mem}</option>;
 				})}
 			</select>

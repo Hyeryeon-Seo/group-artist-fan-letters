@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import * as S from "styles/PagesStyle";
 import { CommentContext } from "../context/CommentContext";
 
-function Detail({ commentList, setCommentList }) {
+function Detail() {
 	const context = useContext(CommentContext);
 	const { id } = useParams();
 
@@ -52,7 +52,6 @@ function Detail({ commentList, setCommentList }) {
 				<button>수정</button>
 				<button onClick={() => deleteCommentHandler(id)}>삭제</button>
 			</article>
-
 			<Footer></Footer>
 		</S.LayoutDiv>
 	);
