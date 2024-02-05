@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import CustomInput from "components/common/CustomInput";
+import CustomTextarea from "../common/CustomTextarea";
+import * as S from "styles/FormSectionStyle";
 
 function CommentForm({ memberList, setCommentList }) {
 	const [nickname, setNickname] = useState("");
@@ -39,7 +41,7 @@ function CommentForm({ memberList, setCommentList }) {
 		}
 
 		addCommentHandler({
-			createdAt: `${new Date()}`,
+			createdAt: new Date(),
 			nickname,
 			avatar: "src/assets/defult-avatar.png",
 			content,
@@ -57,23 +59,27 @@ function CommentForm({ memberList, setCommentList }) {
 				value={nickname}
 				onChange={handleNicknameInputChange}
 				placeholder="닉네임은 최대 20자까지만 가능해요."
+				maxLength="20"
 			>
 				닉네임
 			</CustomInput>
-			<label>내용</label>
-			<textarea
+			<CustomTextarea
 				value={content}
 				onChange={handleContentTextChange}
-				maxlength="100"
 				placeholder="내용은 최대 100자까지만 작성할 수 있어요."
-			></textarea>
-			<label>To.</label>
-			<select value={writedTo} onChange={handleWritedToSelectChange}>
-				{memberList.map((mem) => {
-					return <option value={mem}>{mem}</option>;
-				})}
-			</select>
-			<button type="submit">팬레터 등록</button>
+				maxLength="100"
+			>
+				내용
+			</CustomTextarea>
+			<S.SelectBox>
+				<S.SelectLabel>To.</S.SelectLabel>
+				<select value={writedTo} onChange={handleWritedToSelectChange}>
+					{memberList.map((mem) => {
+						return <option value={mem}>{mem}</option>;
+					})}
+				</select>
+			</S.SelectBox>
+			<S.AddBtn type="submit">팬레터 등록</S.AddBtn>
 		</form>
 	);
 }

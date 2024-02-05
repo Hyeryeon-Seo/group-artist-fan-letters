@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-function CustomInput(props) {
+function CustomTextarea(props) {
 	const { children, name, type, value, onChange, placeholder, maxLength } =
 		props;
 	return (
-		<InputBox>
-			<InputTitle>{children}</InputTitle>
-			<input
+		<TextareaBox>
+			<TextareaText>{children}</TextareaText>
+			<textarea
 				name={name}
 				type={type}
 				value={value}
@@ -15,20 +15,20 @@ function CustomInput(props) {
 				placeholder={placeholder}
 				maxLength={maxLength} // 글자수제한
 			/>
-		</InputBox>
+		</TextareaBox>
 	);
 }
 
-export default CustomInput;
+export default CustomTextarea;
 
 // 같은 파일내부 styled-components 적용
-const InputBox = styled.div`
+const TextareaBox = styled.div`
 	display: flex;
 `;
 
-const InputTitle = styled.div`
+const TextareaText = styled.div`
 	font-size: 20px;
 	/* font-weight: bold; */
-	margin-right: 30px;
+	margin-right: 15px;
 	margin-top: 25px;
 `;

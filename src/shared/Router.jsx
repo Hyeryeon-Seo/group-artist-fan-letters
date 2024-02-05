@@ -1,5 +1,5 @@
 import React, { useState } from "react"; // 빼먹은 !? 원래 Router자체에서는 react는 필요없는듯
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "pages/Home"; // pages/Home 절대경로설정됨
 import Detail from "pages/Detail";
 import { dummyData } from "./fakeData";
@@ -29,6 +29,8 @@ const Router = () => {
 						<Detail commentList={commentList} setCommentList={setCommentList} />
 					}
 				/>
+				<Route path="*" element={<Navigate replace to="/" />} />
+				{/*그 외 다른 path name이 url에 온 경우(*) 홈으로 이동(redirect)시키기 : Navigate사용 */}
 			</Routes>
 		</BrowserRouter>
 	);

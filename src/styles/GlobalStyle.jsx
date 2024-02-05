@@ -2,6 +2,60 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 // 전역 스타일링에서 -> 구역 사이즈 적용 (body, header, footer ..)
+/* reset.css
+   http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+// box-sizing (해설영상대로, BUT 이미 디자인된게있어서 수정할일많아져서 적용X하기로)
+/* * {
+	box-sizing: border-box;
+} */
+
 @font-face {
 	font-family: "Pretendard-Light";
 	src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff")
@@ -34,30 +88,40 @@ const GlobalStyle = createGlobalStyle`
 	font-style: normal;
 }
 
+:root {
+  --maincolor : #b33cb3;
+}
+
 	body {
         color: black;
 	    background-color: #0e0d0d;
-        display: flex;
-  		flex-direction: column; 
-  		align-items: center; 
- 	 	margin: 0 auto 0;
+        /* display: flex; 이걸 적용하면 가로넓이 제한생김 (창 모두 커버X)
+  		 flex-direction: column;  */
+  		/* align-items: center;  의미 X*/
+ 	 	/* margin: 0px; 의미 X */
 		/* width: 1000px; */
 		min-height: 1000px;
 		font-family: "Pretendard-Regular";
-    }
+    } 
+
+	* {
+		font-family: "Pretendard-Regular";
+	}
 
     header {
+		width: 100%;
         height: 20px; //videosection 떄문에 높이가 0이어도 
 		margin-top: 30px;
 		padding-top: 10px;
 		padding-bottom:10px;
-		padding-left: 10px;
-		background-color: #b33cb3; 
+		/* padding-left: 10px; (margin도 동일) 이거때문에 창가로스크롤조금 생김 (삐져나옴)*/
+		background-color: #b33cb3;
     }
 	
-	h1 {
+	h1 { // 헤더 제목
 		font-size: 20px;
 		font-family: "Pretendard-Black";
+		padding-left: 20px;
 	}
 
 	h2 { // section의 제목 (Write&Send 등)
@@ -73,54 +137,87 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	nav > ul > li { // nav에 속하는 li
-		padding: 20px;
-		width:70px;
 		display: flex;
 		justify-content: center; 
-		font-size: 20px;
+		padding: 20px;
+		margin: 20px auto 20px auto;
 	}
 
 
 	 form {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	gap: 50px;
 	padding: 30px;
-	background-color: #f1d5ed;
+	background-color: #000000;
 	/* margin-right: 100px; */
-	margin-top: 5px;
-	width: 700px;
-	height: 500px;
-	color: black;
-	border-radius: 10px;
+	/* box-shadow: 0px 0px 5px 2px yellow; */
+	margin-top: 5dpx;
+	width: 600px;
+	height: 430px;
+	color: yellow;
+	border-radius: 3cm;
+	font-size: 20px;
 	} 
 
 	input {
+		background-color: black;
+		color: white;
 		width: 300px;
-		height: 30px;
+		height: 40px;
 		margin-top: 15px;
+		border: 3px solid #0e0d0d;
+		border-radius: 10px;
+		font-size: 20px;
 	}
 
 	textarea {
-		width: 500px;
-		height: 50px;
+		background-color: black;
+		color:white;
+		width: 400px;
+		height: 70px;
+		border: none;
+		border-radius: 10px;
+		font-size: 20px;
+		margin-left: 30px;
 	}
 
 	select {
 		width: 100px;
+		height: 40px;
+		border: none;
+		border-radius: 10px;
+		font-size: 20px;
+		font-weight: bold;
+		box-shadow: 0px 0px 10px 0px yellow;
+		color:white;
+		background-color: black;
+		padding-left: 20px;
 	}
 
 	button { 
-	background-color: rgb(253, 232, 250);
-	width: 150px;
-	height: 40px;
+	background-color: rgb(0, 0, 0);
 	border: none;
 	margin-top: 10px;
-	&:hover {
-		box-shadow: 0px 0px 3px 1px lightcoral;
-	}
+	/* margin-left: 230px; */
 	font-size: medium;
+	/* font-weight: bold; */
 	border-radius: 10px;
+	color: white;
+	font-family: "Pretendard-Regular";
+	cursor: pointer;
+	font-weight: bold;
+	}
+
+	form > button {
+		width: 150px;
+		height: 50px;
+		background-color: #b33cb3;
+		&:hover {
+		background-color: yellow;
+		color:black;
+		}
 	}
 
 	article {
@@ -134,13 +231,11 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	footer {
-		height: 50px;
-		text-align: end;
+		height: 30px;
+		/* text-align: end; */
 		padding-top: 50px;
-		padding-right: 30px;
 		padding-bottom: 30px;
 		color: #a184aa;
-		background-color: #25072c;
 		font-family: "Pretendard-Light";
 	}
     `;
