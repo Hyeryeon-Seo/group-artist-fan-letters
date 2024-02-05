@@ -7,7 +7,7 @@ function VideoSection() {
 			<S.Iframe
 				src="https://www.youtube.com/embed/Os_heh8vPfs?autoplay=0&mute=1;&loop=1&playlist=Os_heh8vPfs"
 				title="aespa에스파 Spicy MV"
-				//!!! 나중에 autoplay=1로 수정해서 완성할 것!!
+				// TODO 나중에 autoplay=1로 수정해서 완성할 것!!
 				frameborder="0" // 유튭표시할떄 외곽선값 (0)
 				allowfullscreen // 전체화면모드 허용여부
 			>

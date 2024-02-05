@@ -39,17 +39,20 @@ const GlobalStyle = createGlobalStyle`
         color: black;
 	    background-color: #0e0d0d;
         display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  margin: 0 auto 0;
-  /* width: 1000px; */
-  min-height: 1000px;
-  font-family: "Pretendard-Regular";
+  		flex-direction: column; 
+  		align-items: center; 
+ 	 	margin: 0 auto 0;
+		/* width: 1000px; */
+		min-height: 1000px;
+		font-family: "Pretendard-Regular";
     }
 
     header {
         height: 20px; //videosection 떄문에 높이가 0이어도 
+		margin-top: 30px;
+		padding-top: 10px;
 		padding-bottom:10px;
+		padding-left: 10px;
 		background-color: #b33cb3; 
     }
 	
@@ -65,10 +68,7 @@ const GlobalStyle = createGlobalStyle`
 		padding-top: 20px;
 	}
 
-	 nav > ul { // nav   
-		// nav > ul  (css처럼) 적용됨! (대신 바로 하위태그마다 적용되어서, 이중하위태그?는 > > 이중 연결 아래참고)
-		// 대신 nav에 속하는 ul 태그에서 이걸 적용하더라도
-		// ul   만 태그 스타일링시 그것도 똑같이 적용된다.. (하지만 nav에속하지않는 ul은 이게 적용안된다)
+	 nav > ul {   
 		display: flex;
 		justify-content: space-around;
 	}
@@ -77,7 +77,7 @@ const GlobalStyle = createGlobalStyle`
 		padding: 20px;
 		width:70px;
 		display: flex;
-		justify-content: center; // 글자 가운데
+		justify-content: center; 
 		font-size: 20px;
 	}
 
@@ -111,7 +111,7 @@ const GlobalStyle = createGlobalStyle`
 		width: 100px;
 	}
 
-	button { // 내 toodlist버튼스타일 복붙 -> 수정하기
+	button { 
 	background-color: rgb(253, 232, 250);
 	width: 150px;
 	height: 40px;
@@ -120,7 +120,7 @@ const GlobalStyle = createGlobalStyle`
 	&:hover {
 		box-shadow: 0px 0px 3px 1px lightcoral;
 	}
-	  font-size: medium;
+	font-size: medium;
 	border-radius: 10px;
 	}
 

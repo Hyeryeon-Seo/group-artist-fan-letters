@@ -12,23 +12,19 @@ export const ListSecTitle = styled.h2`
 `;
 
 export const CommentListUl = styled.ul`
-	//todolist 의 li.. 바꿔야. . 태그 가져와서 수정하기
 	display: flex;
 	justify-content: center;
 	margin: 10px auto 0px 120px;
 	padding-bottom: 60px;
-	/* 최대 최소넓이는 리스트 뜨는 부분에만 적용*/
 	min-width: 800px;
 	max-width: 1200px;
-	flex-wrap: wrap; /* 필수! 카드리스트 다음 줄 이동하게 해줌 */
+	flex-wrap: wrap;
 	gap: 20px;
 	color: white;
 `;
 
 export const CommentItemLi = styled.li`
-	//todolist 의 ul태그 가져와서 수정
 	display: flex;
-	/* gap: 30px; */
 	justify-content: space-between;
 	margin-top: 20px;
 	background-color: rgb(236, 186, 236);
