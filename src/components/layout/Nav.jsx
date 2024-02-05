@@ -5,9 +5,8 @@ function Nav() {
 	const context = useContext(CommentContext);
 
 	// NOTE 전체버튼 -모든 Comment 뜨게하기
-	// FIXME 다시 누를때 동작 X
 	const handleAllCommentsClick = () => {
-		context.setFilteredByMemList((prevCommentList) => prevCommentList);
+		context.setFilteredByMemList(context.commentList);
 	};
 
 	// NOTE nav의 멤버별 li 클릭 시 해당 멤버 목록만 뜨게하기

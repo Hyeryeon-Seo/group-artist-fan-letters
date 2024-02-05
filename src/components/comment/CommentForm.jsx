@@ -24,12 +24,12 @@ function CommentForm() {
 		setWritedTo(e.target.value);
 	};
 
-	// // 등록하기
+	// 등록하기
 	const addCommentHandler = (newComment) => {
 		context.setCommentList((prevCommentList) => [
 			newComment,
 			...prevCommentList,
-		]); // fix: (newComment)로 써버려서 안되는 버그발생했었다ㅠㅠ
+		]);
 	};
 
 	// // form태그 제출 시 (코멘트 추가 버튼, 등록 / 기존 input,textarea 글자 초기화
