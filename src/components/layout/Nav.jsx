@@ -4,9 +4,9 @@ function Nav({ memRef, memberList, commentList, setFilteredByMemList }) {
 	// comment없을 경우 해당 멤버명 뜨게하기 : useRef 사용
 
 	// NOTE 전체버튼 -모든 Comment 뜨게하기
-	// FIXME 다시 누를때 동작 X
+	// FIXME 첫화면에서 뜨지만 전체버튼누르면 동작 X => 수정 완료
 	const handleAllCommentsClick = () => {
-		setFilteredByMemList((prevCommentList) => prevCommentList);
+		setFilteredByMemList(commentList); // (prevcommentList) => prevcommentList 로 하면 안됨
 	};
 
 	// NOTE nav의 멤버별 li 클릭 시 해당 멤버 목록만 뜨게하기
