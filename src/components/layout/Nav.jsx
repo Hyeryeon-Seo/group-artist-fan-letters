@@ -1,18 +1,21 @@
 import React, { useContext } from "react";
 import { CommentContext } from "../../context/CommentContext";
+import { useSelector } from "react-redux";
 
 function Nav() {
+	const commentList = useSelector((store) => store.commentList);
+
 	const context = useContext(CommentContext);
 
 	// NOTE 전체버튼 -모든 Comment 뜨게하기
 	const handleAllCommentsClick = () => {
-		context.setFilteredByMemList(context.commentList);
+		context.setFilteredByMemList(commentList);
 	};
 
 	// NOTE nav의 멤버별 li 클릭 시 해당 멤버 목록만 뜨게하기
 	const handleFilterWritedToClick = (clickedMem) => {
 		context.setFilteredByMemList(
-			context.commentList.filter((comment) => comment.writedTo === clickedMem)
+			commentList.filter((comment) => comment.writedTo === clickedMem)
 		);
 
 		context.memRef.current = clickedMem;

@@ -1,9 +1,12 @@
+// vite의 main.jsx-  CRA의 index.js와 같은 기능?
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-// index.css지웠으니 여기서도 index.css 임포트 없애주기
+import { Provider } from "react-redux";
+import store from "./redux/config/configStore";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<React.StrictMode>
+	<Provider store={store}>
 		<App />
-	</React.StrictMode>
+	</Provider>
 );

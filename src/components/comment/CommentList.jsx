@@ -3,9 +3,13 @@ import Nav from "../layout/Nav";
 import CommentItem from "./CommentItem";
 import * as S from "styles/CommentListItemStyle";
 import { CommentContext } from "../../context/CommentContext";
+import { useSelector } from "react-redux";
 
 function CommentList() {
+	const commentList = useSelector((store) => store.commentList);
+
 	const context = useContext(CommentContext);
+
 	return (
 		<S.ListSection>
 			<S.ListSecTitle>Fan Letter Box</S.ListSecTitle>
