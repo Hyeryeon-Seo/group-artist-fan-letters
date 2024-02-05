@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { useParams } from "react-router-dom";
 import * as S from "styles/PagesStyle";
+import { CommentContext } from "../context/CommentContext";
 
 function Detail({ commentList, setCommentList }) {
+	const context = useContext(CommentContext);
 	const { id } = useParams();
 
-	const selectedComment = commentList.find((comment) => comment.id === id);
+	const selectedComment = context.commentList.find(
+		(comment) => comment.id === id
+	);
 
 	const navigate = useNavigate();
 	const handleHomeClick = () => {
@@ -19,14 +23,14 @@ function Detail({ commentList, setCommentList }) {
 	// 둘다 set해줘야 잘 적용됨 -> 이렇게 하는게 맞나
 	const deleteCommentHandler = (id) => {
 		if (window.confirm("정말 삭제하실 건가요?")) {
-			setCommentList((prevCommentList) =>
+			context.setCommentList((prevCommentList) =>
 				prevCommentList.filter((comment) => comment.id !== id)
 			);
 			alert("팬레터가 삭제되었습니다");
 			// 홈화면으로 이동
 			navigate("/");
 
-			setFilteredByMemList((prevCommentList) =>
+			context.setFilteredByMemList((prevCommentList) =>
 				prevCommentList.filter((comment) => comment.id !== id)
 			); // 엇 메인에서와다르게 이거없어도 삭제 잘 먹히는거같은데?
 			// 아래에서 화면이동하면서 자연스럽게 리렌더링?되어서인듯!
