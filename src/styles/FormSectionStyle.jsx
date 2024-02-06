@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FormSection = styled.section`
-	height: 700px;
+	height: 800px;
 	background-color: var(--maincolor);
 	margin-top: 50px;
 	padding-bottom: 40px;
@@ -11,11 +11,12 @@ export const ImgFormBox = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 150px;
+	gap: 100px;
 	margin: 50px;
 `;
 export const ArtistImg = styled.img`
-	height: 570px;
+	height: 530px;
+	width: 700px;
 	border-radius: 20px;
 `;
 

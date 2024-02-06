@@ -122,7 +122,7 @@ table {
 		font-family: "Pretendard-Black";
 		font-size: 50px;
 		margin: 0px auto 10px 100px;
-		padding-top: 20px;
+		padding-top: 40px;
 	}
 
 	 nav > ul {   

@@ -43,7 +43,8 @@ function CommentForm({ memberList, setCommentList }) {
 		addCommentHandler({
 			createdAt: new Date(),
 			nickname,
-			avatar: "src/assets/defult-avatar.png",
+			avatar:
+				"https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg",
 			content,
 			writedTo,
 			id: crypto.randomUUID(), // 고유한 id 부여
