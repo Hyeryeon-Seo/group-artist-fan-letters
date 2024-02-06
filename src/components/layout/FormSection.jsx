@@ -7,7 +7,7 @@ function FormSection({ memberList, setCommentList }) {
 		<S.FormSection>
 			<h2>Write & Send</h2>
 			<S.ImgFormBox>
-				<S.ArtistImg src="https://github.com/Hyeryeon-Seo/group-artist-fan-letters/blob/props-drilling/src/assets/aespaGroupImage.jpg"></S.ArtistImg>
+				<S.ArtistImg src={process.env.PUBLIC_URL + "srcassetsaespaGroupImage.jpg"} />
 				{/*form태그 - 코멘트(팬레터) 입력, 등록하기*/}
 				<CommentForm
 					memberList={memberList}
