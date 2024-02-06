@@ -1,9 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import CustomInput from "components/common/CustomInput";
-import { CommentContext } from "../../context/CommentContext";
+import { useDispatch } from "react-redux";
 
 function CommentForm() {
-	const context = useContext(CommentContext);
+	const memberList = ["카리나", "윈터", "닝닝", "지젤"];
+	const dispatch = useDispatch();
+	// const context = useContext(CommentContext);
 
 	const [nickname, setNickname] = useState("");
 	const [content, setContent] = useState("");
@@ -25,12 +27,12 @@ function CommentForm() {
 	};
 
 	// 등록하기
-	const addCommentHandler = (newComment) => {
-		context.setCommentList((prevCommentList) => [
-			newComment,
-			...prevCommentList,
-		]);
-	};
+	// const addCommentHandler = (newComment) => {
+	// 	context.setCommentList((prevCommentList) => [
+	// 		newComment,
+	// 		...prevCommentList,
+	// 	]);
+	// };
 
 	// // form태그 제출 시 (코멘트 추가 버튼, 등록 / 기존 input,textarea 글자 초기화
 	// FIXME 처음에 멤버선택 카리나 초기그대로 둔상태에서 등록시, 카리나 눌렀을때 안뜸
@@ -44,14 +46,15 @@ function CommentForm() {
 			return;
 		}
 
-		addCommentHandler({
-			createdAt: `${new Date()}`,
+		const newComment = {
+			createdAt: new Date(),
 			nickname,
 			avatar: "src/assets/defult-avatar.png",
 			content,
 			writedTo,
 			id: crypto.randomUUID(), // 고유한 id 부여
-		});
+		};
+		dispatch(addComment(newComment));
 		setNickname("");
 		setContent("");
 	};
@@ -75,7 +78,7 @@ function CommentForm() {
 			></textarea>
 			<label>To.</label>
 			<select value={writedTo} onChange={handleWritedToSelectChange}>
-				{context.memberList.map((mem) => {
+				{memberList.map((mem) => {
 					return <option value={mem}>{mem}</option>;
 				})}
 			</select>

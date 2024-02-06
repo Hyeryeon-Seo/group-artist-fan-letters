@@ -13,11 +13,19 @@ function CommentItem({ comment }) {
 		navigate(`detail/${id}`);
 	};
 
+	const formattedCreatedTime = new Date(createdAt).toLocaleDateString("ko-KR", {
+		year: "2-digit",
+		month: "numeric",
+		day: "numeric",
+		hour: "numeric",
+		minute: "numeric",
+		second: "numeric",
+	});
 	return (
 		<S.CommentItemLi key={id} onClick={() => handleCommentClick(id)}>
 			<S.AvatarImg src={avatar} />
 			<h5>{nickname}</h5>
-			<time>{createdAt}</time>
+			<time>{formattedCreatedTime}</time>
 			<p>{content}</p>
 		</S.CommentItemLi>
 	);
