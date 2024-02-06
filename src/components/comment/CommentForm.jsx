@@ -66,8 +66,8 @@ function CommentForm({ memberList, setCommentList }) {
 			<CustomTextarea
 				value={content}
 				onChange={handleContentTextChange}
-				placeholder="내용은 최대 100자까지만 작성할 수 있어요."
-				maxLength="100"
+				placeholder="내용은 최대 250자까지만 작성할 수 있어요."
+				maxLength="250"
 			>
 				내용
 			</CustomTextarea>

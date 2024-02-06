@@ -24,12 +24,11 @@ export const SelectBox = styled.div`
 	display: flex;
 	gap: 30px;
 	margin-left: 400px;
-	margin-top: 20px;
+	margin-top: 0px;
 `;
-export const SelectLabel = styled.label`
-	margin-top: 10px;
-`;
+export const SelectLabel = styled.label``;
 
 export const AddBtn = styled.button`
 	font-size: 20px;
+	height: 80px;
 `;

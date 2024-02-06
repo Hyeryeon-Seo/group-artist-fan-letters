@@ -2,10 +2,18 @@ import React, { useRef, useState } from "react";
 import Nav from "../layout/Nav";
 import CommentItem from "./CommentItem";
 import * as S from "styles/CommentListItemStyle";
+import { useNavigate } from "react-router-dom";
 
 function CommentList({ memberList, commentList }) {
 	const [filteredByMemList, setFilteredByMemList] = useState(commentList);
 	const memRef = useRef("카리나");
+
+	const navigate = useNavigate();
+
+	// NOTE 각각의 Comment에 맞는 상세페이지로 이동
+	const handleCommentClick = (id) => {
+		navigate(`detail/${id}`);
+	};
 
 	return (
 		<S.ListSection>
@@ -21,7 +29,14 @@ function CommentList({ memberList, commentList }) {
 				{/* TODO commentlist (filterd..) 시간순으로 배치하기 (최신순 위에서부터) */}
 				{filteredByMemList.length > 0 ? (
 					filteredByMemList.map((comment) => {
-						return <CommentItem comment={comment}></CommentItem>;
+						return (
+							<S.CommentItemLi
+								key={comment.id}
+								onClick={() => handleCommentClick(comment.id)}
+							>
+								<CommentItem comment={comment}></CommentItem>
+							</S.CommentItemLi>
+						);
 					})
 				) : (
 					<S.noCommentText>

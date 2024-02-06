@@ -115,7 +115,7 @@ table {
 		padding-top: 10px;
 		padding-bottom:10px;
 		/* padding-left: 10px; (margin도 동일) 이거때문에 창가로스크롤조금 생김 (삐져나옴)*/
-		background-color: #b33cb3;
+		background-color: var(--maincolor);
     }
 	
 	h1 { // 헤더 제목
@@ -155,7 +155,7 @@ table {
 	/* box-shadow: 0px 0px 5px 2px yellow; */
 	margin-top: 5dpx;
 	width: 600px;
-	height: 430px;
+	height: 530px;
 	color: yellow;
 	border-radius: 3cm;
 	font-size: 20px;
@@ -167,20 +167,9 @@ table {
 		width: 300px;
 		height: 40px;
 		margin-top: 15px;
-		border: 3px solid #0e0d0d;
+		border: 3px solid #333030;
 		border-radius: 10px;
 		font-size: 20px;
-	}
-
-	textarea {
-		background-color: black;
-		color:white;
-		width: 400px;
-		height: 70px;
-		border: none;
-		border-radius: 10px;
-		font-size: 20px;
-		margin-left: 30px;
 	}
 
 	select {
@@ -213,7 +202,9 @@ table {
 	form > button {
 		width: 150px;
 		height: 50px;
-		background-color: #b33cb3;
+		margin-top: -5px;
+		margin-bottom: 20px;
+		background-color: var(--maincolor);
 		&:hover {
 		background-color: yellow;
 		color:black;

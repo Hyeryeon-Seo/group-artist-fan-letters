@@ -7,7 +7,7 @@ function CustomTextarea(props) {
 	return (
 		<TextareaBox>
 			<TextareaText>{children}</TextareaText>
-			<textarea
+			<Textarea
 				name={name}
 				type={type}
 				value={value}
@@ -31,4 +31,15 @@ const TextareaText = styled.div`
 	/* font-weight: bold; */
 	margin-right: 15px;
 	margin-top: 25px;
+`;
+
+const Textarea = styled.textarea`
+	background-color: black;
+	color: white;
+	width: 450px;
+	height: 200px;
+	border: 3px solid #333030;
+	border-radius: 10px;
+	font-size: 20px;
+	margin-left: 30px;
 `;

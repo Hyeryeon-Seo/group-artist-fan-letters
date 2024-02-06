@@ -1,6 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ListSection = styled.section`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	width: 100%;
 	min-height: 600px;
 `;
@@ -14,10 +17,9 @@ export const ListSecTitle = styled.h2`
 export const CommentListUl = styled.ul`
 	display: flex;
 	justify-content: center;
-	margin: 50px auto 10px 120px;
+	margin: 50px auto 10px auto;
 	padding-bottom: 60px;
-	min-width: 800px;
-	max-width: 1200px;
+	width: 800px;
 	flex-wrap: wrap;
 	gap: 20px;
 	color: white;
@@ -25,12 +27,17 @@ export const CommentListUl = styled.ul`
 
 export const CommentItemLi = styled.li`
 	display: flex;
-	justify-content: space-between;
+	/* justify-content: center; */
+	align-items: center;
 	margin-top: 10px;
 	background-color: #b46bb4;
 	border-radius: 30px;
 	width: 700px;
+	height: 130px;
+	font-size: 20px;
 	margin-right: 15px;
+	gap: 30px;
+
 	cursor: pointer; // 마우스올리면 가리키는모양으로 바뀌기?
 	&:hover {
 		transition: all 0.2s; // 약간 시간두고
@@ -40,7 +47,7 @@ export const CommentItemLi = styled.li`
 	}
 
 	color: black;
-	padding: 10px;
+	padding: 0px 0px 0px 20px;
 `;
 
 export const AvatarImg = styled.img`
@@ -50,7 +57,60 @@ export const AvatarImg = styled.img`
 export const noCommentText = styled.p`
 	display: flex;
 	align-items: center;
-	margin-left: 10rem;
+	justify-content: center;
 	margin-top: 5rem;
 	font-size: 20px;
 `;
+
+export const CommentTextBox = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	/* margin-top: ${(props) =>
+		props.$detail === "detail" ? "50px" : "none"}; */
+	${(props) => {
+		if (props.$detail === "detail") {
+			return css`
+				margin-top: 50px;
+				width: 900px;
+			`;
+		}
+		return css`
+			width: 550px;
+		`;
+	}}
+`;
+
+export const CommentNameDateBox = styled.div`
+	display: flex;
+	justify-content: space-between;
+	padding-right: 50px;
+	font-size: ${(props) => (props.$detail === "detail" ? "30px" : "none")};
+	margin-bottom: ${(props) => (props.$detail === "detail" ? "30px" : "none")};
+`;
+
+export const DetailTextarea = styled.textarea`
+	min-height: 150px;
+	border-radius: 10px;
+	font-size: 23px;
+	padding: 15px;
+	resize: none; // 수정시 textarea 크기 수정불가하도록
+`;
+
+export const CommentContent = styled.p`
+	${(props) => {
+		if (props.$detail !== "detail") {
+			return css`
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			`;
+		}
+		return css`
+			line-height: 2.5rem;
+			font-size: 23px;
+		`;
+	}}
+`;
+// 위 3줄로 범위넘어가는 글자는 ... 처리`
+// 백틱안 주석 에러날수잇으니 주의
