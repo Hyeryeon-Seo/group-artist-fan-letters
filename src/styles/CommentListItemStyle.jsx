@@ -27,7 +27,6 @@ export const CommentListUl = styled.ul`
 
 export const CommentItemLi = styled.li`
 	display: flex;
-	/* justify-content: center; */
 	align-items: center;
 	margin-top: 10px;
 	background-color: #b46bb4;
@@ -38,11 +37,10 @@ export const CommentItemLi = styled.li`
 	margin-right: 15px;
 	gap: 30px;
 
-	cursor: pointer; // 마우스올리면 가리키는모양으로 바뀌기?
+	cursor: pointer;
 	&:hover {
-		transition: all 0.2s; // 약간 시간두고
+		transition: all 0.2s;
 		transform: scale(1.03);
-		// 마우스 올리면 항목이 살짝 커지게 하기
 		box-shadow: 0px 0px 20px 1px var(--maincolor);
 	}
 
@@ -66,8 +64,6 @@ export const CommentTextBox = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 1.5rem;
-	/* margin-top: ${(props) =>
-		props.$detail === "detail" ? "50px" : "none"}; */
 	${(props) => {
 		if (props.$detail === "detail") {
 			return css`
@@ -112,5 +108,3 @@ export const CommentContent = styled.p`
 		`;
 	}}
 `;
-// 위 3줄로 범위넘어가는 글자는 ... 처리`
-// 백틱안 주석 에러날수잇으니 주의

@@ -2,8 +2,7 @@ import React from "react";
 import * as S from "styles/CommentListItemStyle";
 
 function CommentItem({ comment, pageName, isEditing, textareaChange }) {
-	const { id, avatar, nickname, createdAt, content } = comment;
-	// console.log(pageName);
+	const { avatar, nickname, createdAt, content } = comment;
 	// NOTE 날짜시간변환 알아두기! (fakeData의 createdAt에는 ISO 8601 포맷 날짜시간이 있었음)
 	const formattedCreatedTime = new Date(createdAt).toLocaleDateString("ko-KR", {
 		year: "2-digit",
@@ -22,12 +21,10 @@ function CommentItem({ comment, pageName, isEditing, textareaChange }) {
 					<h5>{nickname}</h5>
 					<time>{formattedCreatedTime}</time>
 				</S.CommentNameDateBox>
-				{/* props => props.로받아오면 pageName못찾음 이미 구분할해서?*/}
 				{/* 이중 삼항연산자 */}
 				{pageName === "detail" ? (
 					isEditing ? (
 						<>
-							{/*textarea는 기본적으로 autoFocus속성 내장, 쓸 수있음 (자동커서포커스,바로작성가능) */}
 							<S.DetailTextarea
 								autoFocus
 								defaultValue={content}

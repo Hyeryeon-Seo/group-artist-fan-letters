@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
 function Nav({ memRef, memberList, commentList, setFilteredByMemList }) {
-	// comment없을 경우 해당 멤버명 뜨게하기 : useRef 사용
+	// comment없을 경우 해당 멤버명 뜨게하기 : useRef 사용 - memRef
 
 	// 스타일링컴포넌트 props로 내려줄 것
 	const [activeMember, setActiveMember] = useState("전체");
@@ -11,8 +11,6 @@ function Nav({ memRef, memberList, commentList, setFilteredByMemList }) {
 	// (스타일링을 위해 쓸 것)
 	const onActiveMember = (e) => {
 		if (e.target === e.currentTarget) return;
-		// 현재 타겟(ul태그)이 아닌 하위태그 눌려야 아래 작동 - activeMember state를 해당 멤버명으로 변경
-		//(이후 눌려서 변경된 멤버명 activeMember와 태그 멤버명 같으면 색깔바꾸기 - 이해잘안감 ㅠㅠ)
 		setActiveMember(e.target.textContent);
 	};
 

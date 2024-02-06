@@ -15,7 +15,6 @@ export const ImgFormBox = styled.div`
 	margin: 50px;
 `;
 export const ArtistImg = styled.img`
-	/* margin: 30px 30px auto 100px; */
 	height: 570px;
 	border-radius: 20px;
 `;

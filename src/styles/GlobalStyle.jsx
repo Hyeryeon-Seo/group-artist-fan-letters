@@ -95,11 +95,6 @@ table {
 	body {
         color: black;
 	    background-color: #0e0d0d;
-        /* display: flex; 이걸 적용하면 가로넓이 제한생김 (창 모두 커버X)
-  		 flex-direction: column;  */
-  		/* align-items: center;  의미 X*/
- 	 	/* margin: 0px; 의미 X */
-		/* width: 1000px; */
 		min-height: 1000px;
 		font-family: "Pretendard-Regular";
     } 
@@ -110,11 +105,10 @@ table {
 
     header {
 		width: 100%;
-        height: 20px; //videosection 떄문에 높이가 0이어도 
+        height: 20px; 
 		margin-top: 30px;
 		padding-top: 10px;
 		padding-bottom:10px;
-		/* padding-left: 10px; (margin도 동일) 이거때문에 창가로스크롤조금 생김 (삐져나옴)*/
 		background-color: var(--maincolor);
     }
 	
@@ -151,8 +145,6 @@ table {
 	gap: 50px;
 	padding: 30px;
 	background-color: #000000;
-	/* margin-right: 100px; */
-	/* box-shadow: 0px 0px 5px 2px yellow; */
 	margin-top: 5dpx;
 	width: 600px;
 	height: 530px;
@@ -189,9 +181,7 @@ table {
 	background-color: rgb(0, 0, 0);
 	border: none;
 	margin-top: 10px;
-	/* margin-left: 230px; */
 	font-size: medium;
-	/* font-weight: bold; */
 	border-radius: 10px;
 	color: white;
 	font-family: "Pretendard-Regular";
@@ -223,7 +213,6 @@ table {
 
 	footer {
 		height: 30px;
-		/* text-align: end; */
 		padding-top: 50px;
 		padding-bottom: 30px;
 		color: #a184aa;

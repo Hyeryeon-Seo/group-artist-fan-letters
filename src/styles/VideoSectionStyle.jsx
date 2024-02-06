@@ -5,7 +5,7 @@ export const VideoSection = styled.section`
 	overflow: hidden;
 	width: 100%;
 	height: 600px;
-	display: flex; // NOTE flex와 아래 column까지 주니까, 처음에 영상밑 살짝 짤리는 현상이 해결됨 !! ?
+	display: flex;
 	flex-direction: column;
 `;
 

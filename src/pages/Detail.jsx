@@ -39,7 +39,6 @@ function Detail({ commentList, setCommentList }) {
 	const onEditDone = () => {
 		if (!editingText) {
 			alert("수정사항이 없습니다.");
-			//alert만 뜨게할때는 return alert..하면 되지만 아래줄도 실행할거면 return마지막에 써줘야!
 			setIsEditing(false);
 			return;
 		} //초기값 빈문자열상태
@@ -47,7 +46,6 @@ function Detail({ commentList, setCommentList }) {
 		// 내용 변경시
 		const newComments = commentList.map((comment) => {
 			if (comment.id === id) {
-				// 여기서 id는 아까 param으로 받아온 것
 				return { ...comment, content: editingText };
 			}
 			return comment;
@@ -76,25 +74,16 @@ function Detail({ commentList, setCommentList }) {
 					<S.DetailBtnBox>
 						<S.DetailBtn onClick={() => setIsEditing(false)}>취소</S.DetailBtn>
 						<S.DetailBtn onClick={onEditDone}>수정완료</S.DetailBtn>
-						{/*근데여기서는 콜백함수형태로 onClick속성에부여 x!? 아 set이아니라 함수자체가 들어가서? */}
 					</S.DetailBtnBox>
 				) : (
 					<S.DetailBtnBox>
 						<S.DetailBtn onClick={() => setIsEditing(true)}>수정</S.DetailBtn>
 						<S.DetailBtn onClick={() => deleteCommentHandler(id)}>
-							{/*답안에선 삭제버튼 온클릭 함수도 콜백함수형태로 넣지않았다  */}
 							삭제
 						</S.DetailBtn>
 					</S.DetailBtnBox>
 				)}
-				{/* // <S.DetailBtnBox>
-				// 	<S.DetailBtn onClick={() => setIsEditing(true)}>수정</S.DetailBtn>
-				// 	<S.DetailBtn onClick={() => deleteCommentHandler(id)}>
-				// 		삭제
-				// 	</S.DetailBtn>
-				// </S.DetailBtnBox> */}
 			</article>
-
 			<Footer></Footer>
 		</S.LayoutDiv>
 	);
