@@ -1,58 +1,90 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { useParams } from "react-router-dom";
 import * as S from "styles/PagesStyle";
-import { CommentContext } from "../context/CommentContext";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteComment, editComment } from "../redux/modules/commentList";
+import { getFormattedDate } from "../util/date";
+import CommentItem from "../components/comment/CommentItem";
+// import { defaultAvatar } from "src/assets/default-avatar.png";
 
 function Detail() {
-	const context = useContext(CommentContext);
-	const { id } = useParams();
+	const dispatch = useDispatch();
+	const commentList = useSelector((state) => state.commentList);
 
-	const selectedComment = context.commentList.find(
-		(comment) => comment.id === id
-	);
+	const [isEditing, setIsEditing] = useState(false);
+	const [editingText, setEditingText] = useState("");
 
 	const navigate = useNavigate();
+	const { id } = useParams();
+	const selectedComment = commentList.find((comment) => comment.id == id);
+
+	// console.log(comment);
+
 	const handleHomeClick = () => {
 		navigate("/");
 	};
 
-	// 삭제버튼
-	// 둘다 set해줘야 잘 적용됨 -> 이렇게 하는게 맞나
-	const deleteCommentHandler = (id) => {
+	// 삭제
+	const handleDeleteCommentBtn = () => {
 		if (window.confirm("정말 삭제하실 건가요?")) {
-			context.setCommentList((prevCommentList) =>
-				prevCommentList.filter((comment) => comment.id !== id)
-			);
+			dispatch(deleteComment(id)); // ijmport 잊지말기
 			alert("팬레터가 삭제되었습니다");
 			// 홈화면으로 이동
 			navigate("/");
-
-			context.setFilteredByMemList((prevCommentList) =>
-				prevCommentList.filter((comment) => comment.id !== id)
-			); // 엇 메인에서와다르게 이거없어도 삭제 잘 먹히는거같은데?
-			// 아래에서 화면이동하면서 자연스럽게 리렌더링?되어서인듯!
-			//(Home에서는, setCommentList만해줄경우 바로화면에서 삭제안되고 남아있었다가 다른거 클릭하고 넘어와야 사라졌음)
-			// BUT 컴포넌트분리후에 그런건지, Home페이지에서 삭제안되어있음 & 홈화면이동을 setFiltered..위에 써줘야 작동하게되었다 (바뀜)
 		}
+	};
+
+	const handleEditingTextChange = (e) => {
+		setEditingText(e.target.value);
+	};
+
+	// 수정
+	const handleEditDoneBtn = () => {
+		// id 인자로 받을 필요가 없는게, 그냥 이 detail페이지 받아온 id 바로 쓰면됨 (?)
+		if (!editingText) return alert("수정사항이 없습니다");
+
+		dispatch(editComment({ id, editingText }));
+		setIsEditing(false);
+		setEditingText("");
 	};
 
 	return (
 		<S.LayoutDiv>
-			<Header></Header>
-			<button onClick={handleHomeClick}>Home</button>
+			<Header />
+			<S.DetailBtn onClick={handleHomeClick}>Home</S.DetailBtn>
 			<article>
-				<S.DetailAvaterImg src={selectedComment.avatar}></S.DetailAvaterImg>
-				<h3>{selectedComment.nickname}</h3>
-				<time>{selectedComment.createdAt}</time>
-				<p>To. {selectedComment.writedTo} </p>
-				<p>{selectedComment.content}</p>
-				<button>수정</button>
-				<button onClick={() => deleteCommentHandler(id)}>삭제</button>
+				{/* <S.DetailAvaterImg src={avatar} />
+				{/* 기본이미지는 엑박으로 뜨는 문제 *
+				<h3>{nickname}</h3>
+				<time>{getFormattedDate(createdAt)}</time>
+				<p>To. {writedTo} </p> */}
+				<CommentItem
+					comment={selectedComment}
+					pageName="detail"
+					isEditing={isEditing}
+					textareaChange={handleEditingTextChange}
+				></CommentItem>
+				{isEditing ? (
+					<S.DetailBtnBox>
+						{/* <S.DetailTextarea
+							defaultValue={content}
+							onChange={(e) => setEditingText(e.target.value)}
+						/> */}
+						<S.DetailBtn onClick={() => setIsEditing(false)}>취소</S.DetailBtn>
+						<S.DetailBtn onClick={handleEditDoneBtn}>수정 완료</S.DetailBtn>
+					</S.DetailBtnBox>
+				) : (
+					<S.DetailBtnBox>
+						{/* <S.CommentContent>{content}</S.CommentContent> */}
+						<S.DetailBtn onClick={() => setIsEditing(true)}>수정</S.DetailBtn>
+						<S.DetailBtn onClick={handleDeleteCommentBtn}>삭제</S.DetailBtn>
+					</S.DetailBtnBox>
+				)}
 			</article>
-			<Footer></Footer>
+			<Footer />
 		</S.LayoutDiv>
 	);
 }

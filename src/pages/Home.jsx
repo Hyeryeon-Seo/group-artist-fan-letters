@@ -9,11 +9,11 @@ import * as S from "styles/PagesStyle";
 function Home() {
 	return (
 		<S.LayoutDiv>
-			<Header></Header>
-			<VideoSection></VideoSection>
-			<FormSection></FormSection>
-			<CommentList></CommentList>
-			<Footer></Footer>
+			<Header />
+			<VideoSection />
+			<FormSection />
+			<CommentList />
+			<Footer />
 		</S.LayoutDiv>
 	);
 }

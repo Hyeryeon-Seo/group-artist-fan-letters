@@ -35,37 +35,41 @@ const GlobalStyle = createGlobalStyle`
 	font-style: normal;
 }
 
+:root {
+  --maincolor : #b33cb3;
+}
+
 	body {
         color: black;
 	    background-color: #0e0d0d;
-        display: flex;
-  		flex-direction: column; 
-  		align-items: center; 
- 	 	margin: 0 auto 0;
-		/* width: 1000px; */
 		min-height: 1000px;
 		font-family: "Pretendard-Regular";
-    }
+    } 
+
+	* {
+		font-family: "Pretendard-Regular";
+	}
 
     header {
-        height: 20px; //videosection 떄문에 높이가 0이어도 
+		width: 100%;
+        height: 20px; 
 		margin-top: 30px;
 		padding-top: 10px;
 		padding-bottom:10px;
-		padding-left: 10px;
-		background-color: #b33cb3; 
+		background-color: var(--maincolor);
     }
 	
-	h1 {
+	h1 { // 헤더 제목
 		font-size: 20px;
 		font-family: "Pretendard-Black";
+		padding-left: 20px;
 	}
 
 	h2 { // section의 제목 (Write&Send 등)
 		font-family: "Pretendard-Black";
 		font-size: 50px;
 		margin: 0px auto 10px 100px;
-		padding-top: 20px;
+		padding-top: 40px;
 	}
 
 	 nav > ul {   
@@ -74,54 +78,74 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	nav > ul > li { // nav에 속하는 li
-		padding: 20px;
-		width:70px;
 		display: flex;
 		justify-content: center; 
-		font-size: 20px;
+		padding: 20px;
+		margin: 20px auto 20px auto;
 	}
 
 
 	 form {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	gap: 50px;
 	padding: 30px;
-	background-color: #f1d5ed;
-	/* margin-right: 100px; */
-	margin-top: 5px;
-	width: 700px;
-	height: 500px;
-	color: black;
-	border-radius: 10px;
+	background-color: #000000;
+	margin-top: 5dpx;
+	width: 600px;
+	height: 530px;
+	color: yellow;
+	border-radius: 3cm;
+	font-size: 20px;
 	} 
 
 	input {
+		background-color: black;
+		color: white;
 		width: 300px;
-		height: 30px;
+		height: 40px;
 		margin-top: 15px;
-	}
-
-	textarea {
-		width: 500px;
-		height: 50px;
+		border: 3px solid #333030;
+		border-radius: 10px;
+		font-size: 20px;
 	}
 
 	select {
 		width: 100px;
+		height: 40px;
+		border: none;
+		border-radius: 10px;
+		font-size: 20px;
+		font-weight: bold;
+		box-shadow: 0px 0px 10px 0px yellow;
+		color:white;
+		background-color: black;
+		padding-left: 20px;
 	}
 
 	button { 
-	background-color: rgb(253, 232, 250);
-	width: 150px;
-	height: 40px;
+	background-color: rgb(0, 0, 0);
 	border: none;
 	margin-top: 10px;
-	&:hover {
-		box-shadow: 0px 0px 3px 1px lightcoral;
-	}
 	font-size: medium;
 	border-radius: 10px;
+	color: white;
+	font-family: "Pretendard-Regular";
+	cursor: pointer;
+	font-weight: bold;
+	}
+
+	form > button {
+		width: 150px;
+		height: 50px;
+		margin-top: -5px;
+		margin-bottom: 20px;
+		background-color: var(--maincolor);
+		&:hover {
+		background-color: yellow;
+		color:black;
+		}
 	}
 
 	article {
@@ -135,13 +159,10 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	footer {
-		height: 50px;
-		text-align: end;
+		height: 30px;
 		padding-top: 50px;
-		padding-right: 30px;
 		padding-bottom: 30px;
 		color: #a184aa;
-		background-color: #25072c;
 		font-family: "Pretendard-Light";
 	}
     `;

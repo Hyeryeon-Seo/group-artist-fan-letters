@@ -15,22 +15,21 @@ export const editComment = (payload) => {
 	return { type: EDIT_COMMENT, payload };
 };
 
-const initialState = {
-	dummyData,
-};
+const initialState = dummyData; // {dummyData}에서 중괄호 없애니 뜸 (이미 dummyData자체가 객체배열이라)
 
 const commentList = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_COMMENT:
 			const newComment = action.payload;
-			return [newComment, ...state.dummyData];
+			return [newComment, ...state]; // state.dummyData 말고 그냥 state
 		case DELETE_COMMENT:
 			const commentId = action.payload;
 			return state.filter((comment) => comment.id !== commentId);
-		// 왜 초기값 state (더미데이터?)에서 filter?
+		// 왜 초기값 state (더미데이터?)에서 filter? => state는 현상태? 지 초기값아닌듯
 		// filter 불변성 유지 가능 (새로운배열반환)
 		case EDIT_COMMENT:
 			// 아이디, 수정내용 모두 받아야
+			// action.payload를 객체상태로 넘겨받아서 키인 id, editingText로 .. 구분할
 			const { id, editingText } = action.payload;
 			return state.map((comment) => {
 				if (comment.id === id) {
